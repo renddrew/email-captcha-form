@@ -49,7 +49,10 @@ if( isset($_POST['name']) && $_POST['name'] && isset($_POST['email']) && $_POST[
 
 		if(isset($_POST['g-recaptcha-response']) && $_POST['g-recaptcha-response']){
 
-			$rr= get_data('https://www.google.com/recaptcha/api/siteverify', 'secret=' . $secret . '&response=' . $_POST['g-recaptcha-response']);
+			$captcha = $_POST['g-recaptcha-response'];
+			$captcha = filter_var($captcha, FILTER_SANITIZE_STRING);
+
+			$rr= get_data('https://www.google.com/recaptcha/api/siteverify', 'secret=' . $secret . '&response=' . $captcha);
 
 			$arr = json_decode($rr, true);
 
