@@ -1,0 +1,46 @@
+
+<!doctype html>
+<html lang=en-us>
+<head>
+	<meta charset=utf-8>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Ajax Email Form with reCaptcha</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src='https://www.google.com/recaptcha/api.js'></script>
+	<script src='js/script.js'></script>
+</head>
+
+<body>
+
+	<form action="request-form.php" method="post" id="form">
+		
+		 <label for="name" class="required">Your Name</label>
+         <input type="text" name="name" id="name">
+
+         <br>
+
+         <label for="email" class="required">E-mail</label>
+         <input type="email" name="email" id="email">
+
+         <br>
+
+		 <label for="message" class="required">Message</label>
+		 <textarea rows="6" name="message" id="message"></textarea>
+
+		 <br>
+
+		 <!-- You'll need to replace the data-sitekey below with yours from reCaptcha -->
+
+		<div class="g-recaptcha" data-sitekey="6LdT1BwUAAAAADYWz-JRUFT8afBV_rN7dh6mA8cT"></div>
+
+		<br>
+	    	
+	    <input type="submit" id="submit" class="button" value="Submit" />
+	 
+	 </form>
+
+	 <div id="notification" class="message" style="display:none;"></div>
+
+</body>
+</html>
+
